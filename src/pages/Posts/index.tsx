@@ -1,7 +1,14 @@
+import { Loading } from '../../components/Loading'
+import { PostCard } from './components/PostCard'
 import { Profile } from './components/Profile'
 import { SearchForm } from './components/SearchForm'
 
-import { PostsContainer, SearchContainer, SearchHeader } from './styles'
+import {
+  PostListContainer,
+  PostsContainer,
+  SearchContainer,
+  SearchHeader,
+} from './styles'
 
 export function Posts() {
   return (
@@ -16,6 +23,14 @@ export function Posts() {
 
         <SearchForm />
       </SearchContainer>
+
+      <PostListContainer>
+        <PostCard />
+        <PostCard />
+        <PostCard />
+      </PostListContainer>
+
+      <Loading />
     </PostsContainer>
   )
 }
