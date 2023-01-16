@@ -35,6 +35,9 @@ export const defaultTheme = {
     },
     primary: colors.blue['500'],
   },
+  container: {
+    md: '54rem',
+  },
   font: {
     primary: {
       family: "'Nunito', sans-serif",

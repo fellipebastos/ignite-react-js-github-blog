@@ -24,4 +24,8 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: ${({ theme }) => theme.font.primary.weight.regular};
     font-size: ${({ theme }) => theme.font.primary.size.md};
   }
+
+  a {
+    text-decoration: none;
+  }
 `

@@ -1,3 +1,11 @@
+import { Profile } from './components/Profile'
+
+import { PostsContainer } from './styles'
+
 export function Posts() {
-  return <h1>Posts page</h1>
+  return (
+    <PostsContainer>
+      <Profile />
+    </PostsContainer>
+  )
 }
