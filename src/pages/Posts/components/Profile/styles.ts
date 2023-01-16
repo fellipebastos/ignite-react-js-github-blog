@@ -5,7 +5,8 @@ export const ProfileContainer = styled.header`
   align-items: center;
   gap: 2rem;
   padding: 2rem 2rem 2rem 2.5rem;
-  margin-top: -90px;
+  margin-top: -5.625rem;
+  margin-bottom: 4.5rem;
 
   background: ${({ theme }) => theme.colors.base.profile};
   border-radius: 10px;

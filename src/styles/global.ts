@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
 
   :focus {
     outline: 0;
-    box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.blue};
+    box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.primary};
   }
 
   body {
@@ -23,6 +23,12 @@ export const GlobalStyle = createGlobalStyle`
     font-family: ${({ theme }) => theme.font.primary.family};
     font-weight: ${({ theme }) => theme.font.primary.weight.regular};
     font-size: ${({ theme }) => theme.font.primary.size.md};
+  }
+
+  input, textarea {
+    &:focus {
+      box-shadow: none
+    };
   }
 
   a {
