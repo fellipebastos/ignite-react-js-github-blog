@@ -14,8 +14,33 @@ import {
   DetailInfo,
 } from './styles'
 import { Link } from 'react-router-dom'
+import { formatDistanceToNow } from 'date-fns'
+import { ptBR } from 'date-fns/locale'
 
-export function Detail() {
+type User = {
+  login: string
+}
+
+type Post = {
+  title: string
+  user: User
+  comments: number
+  html_url: string
+  created_at: string
+}
+
+interface DetailProps {
+  post: Post
+}
+
+export function Detail({ post }: DetailProps) {
+  const { title, user, comments, html_url, created_at } = post
+
+  const formattedDate = formatDistanceToNow(new Date(created_at), {
+    addSuffix: true,
+    locale: ptBR,
+  })
+
   return (
     <DetailContainer>
       <DetailActions>
@@ -24,30 +49,26 @@ export function Detail() {
           Voltar
         </Link>
 
-        <a
-          href="https://github.com/fellipebastos"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href={html_url} target="_blank" rel="noreferrer">
           Ver no Github
           <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
         </a>
       </DetailActions>
       <DetailInfo>
-        <h2>JavaScript data types and data structures</h2>
+        <h2>{title}</h2>
 
         <DetailDetail>
           <div>
             <FontAwesomeIcon icon={faGithub} />
-            <span>cameronwll</span>
+            <span>{user.login}</span>
           </div>
           <div>
             <FontAwesomeIcon icon={faCalendar} />
-            <span>Há 1 dia</span>
+            <span>{formattedDate}</span>
           </div>
           <div>
             <FontAwesomeIcon icon={faComment} />
-            <span>5 comentários</span>
+            <span>{comments} comentários</span>
           </div>
         </DetailDetail>
       </DetailInfo>

@@ -23,7 +23,7 @@ export function PostCard({ post }: PostCardProps) {
   })
 
   return (
-    <PostCardContainer to={`/posts/${number}`}>
+    <PostCardContainer to={`/post/${number}`}>
       <PostCardContent>
         <header>
           <h3>{title}</h3>
