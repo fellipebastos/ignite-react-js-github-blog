@@ -1,12 +1,25 @@
 import { useForm } from 'react-hook-form'
+
 import { SearchFormContainer } from './styles'
 
-export function SearchForm() {
-  const { register, handleSubmit } = useForm()
+interface SearchFormProps {
+  onSubmit: (data: string) => Promise<void>
+}
+
+type SearchFormData = {
+  query: string
+}
+
+export function SearchForm({ onSubmit }: SearchFormProps) {
+  const { register, handleSubmit } = useForm<SearchFormData>()
+
+  async function handleSearch(data: SearchFormData) {
+    await onSubmit(data.query)
+  }
 
   return (
-    <SearchFormContainer>
-      <input placeholder="Buscar conteúdo" {...register('q')} />
+    <SearchFormContainer onSubmit={handleSubmit(handleSearch)}>
+      <input placeholder="Buscar conteúdo" {...register('query')} />
     </SearchFormContainer>
   )
 }

@@ -1,11 +1,14 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-export const PostCardContainer = styled.article`
+export const PostCardContainer = styled(Link)`
+  display: flex;
+`
+
+export const PostCardContent = styled.article`
   display: flex;
   flex-direction: column;
   padding: 2rem;
-
-  height: 16.25rem;
 
   background: ${({ theme }) => theme.colors.base.post};
   border-radius: 10px;
@@ -46,5 +49,7 @@ export const PostCardContainer = styled.article`
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
+
+    word-break: break-word;
   }
 `

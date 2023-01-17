@@ -1,29 +1,37 @@
-import { Link } from 'react-router-dom'
-import { PostCardContainer } from './styles'
+import { formatDistanceToNow } from 'date-fns'
+import { ptBR } from 'date-fns/locale'
 
-export function PostCard() {
+import { PostCardContainer, PostCardContent } from './styles'
+
+type Post = {
+  number: number
+  title: string
+  body: string
+  created_at: string
+}
+
+interface PostCardProps {
+  post: Post
+}
+
+export function PostCard({ post }: PostCardProps) {
+  const { number, title, body, created_at } = post
+
+  const formattedCreatedAt = formatDistanceToNow(new Date(created_at), {
+    addSuffix: true,
+    locale: ptBR,
+  })
+
   return (
-    <Link to="/">
-      <PostCardContainer>
+    <PostCardContainer to={`/posts/${number}`}>
+      <PostCardContent>
         <header>
-          <h3>JavaScript data types and data structures</h3>
-          <time dateTime="2023-01-10T17:50:58Z">Há 1 dia</time>
+          <h3>{title}</h3>
+          <time dateTime={created_at}>{formattedCreatedAt}</time>
         </header>
 
-        <p>
-          Programming languages all have built-in data structures, but these
-          often differ from one language to another. This article attempts to
-          list the built-in data structures available in JavaScript and what
-          properties they have. These can be used to build other data
-          structures. Wherever possible, comparisons with other languages are
-          drawn. Dynamic typing JavaScript is a loosely typed and dynamic
-          language. Variables in JavaScript are not directly associated with any
-          particular value type, and any variable can be assigned (and
-          re-assigned) values of all types: let foo = 42; // foo is now a number
-          foo = 'bar'; // foo is now a string foo = true; // foo is now a
-          boolean
-        </p>
-      </PostCardContainer>
-    </Link>
+        <p>{body}</p>
+      </PostCardContent>
+    </PostCardContainer>
   )
 }
