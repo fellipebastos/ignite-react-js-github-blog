@@ -55,8 +55,11 @@ export const ProfileBio = styled.div`
     color: ${({ theme }) => theme.colors.primary};
     text-transform: uppercase;
 
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+
     &:hover {
-      text-decoration: underline;
+      border-color: ${({ theme }) => theme.colors.primary};
     }
   }
 `

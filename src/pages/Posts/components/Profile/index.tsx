@@ -23,7 +23,11 @@ export function Profile() {
         <ProfileBio>
           <h2>Cameron Williamson</h2>
 
-          <a href="https://github.com/fellipebastos">
+          <a
+            href="https://github.com/fellipebastos"
+            target="_blank"
+            rel="noreferrer"
+          >
             Github
             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
           </a>
