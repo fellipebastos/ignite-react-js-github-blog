@@ -4,7 +4,7 @@
 ![App Screenshot](public/images/github-blog.png)
 
 
-### Aplicação que simula um blog através de repositórios do Github. Casa issue criada é considerada um post.
+Aplicação que simula um blog através de repositórios do Github. Casa issue criada é considerada um post.
 
 #
 
